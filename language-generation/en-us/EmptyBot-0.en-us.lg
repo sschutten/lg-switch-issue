@@ -1,0 +1,33 @@
+[import](common.lg)
+
+# SendActivity_Welcome
+- ${WelcomeUser()}
+
+# Unexpected(score)
+- SWITCH: ${score}
+    - CASE: ${1}
+        - Low
+    - CASE: ${5}
+        - High
+    - DEFAULT:
+        - Unknown (${score} == 1 ? ${score == 1})
+
+# Expected(score)
+- SWITCH: ${int(score)}
+    - CASE: ${int(1)}
+        - Low
+    - CASE: ${int(5)}
+        - High
+    - DEFAULT:
+        - Unknown
+
+# SendActivity_oavXnq()
+[Activity
+    Text = The unexpected response is: '${Unexpected($answer.score)}'
+]
+
+# SendActivity_nerZIE()
+[Activity
+    Text = The expected response is: '${Expected($answer.score)}'
+]
+
